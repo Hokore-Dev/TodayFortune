@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14256" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14243"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14219"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--오늘의 운세-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller title="오늘의 운세" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TodayFortune_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="오늘의 운세" textAlignment="center" id="gtL-bL-c9U">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </label>
+                        <dateLabel alignment="center" textAlignment="center" format="yyyy년 M월 d일" id="tZ0-QI-Jiw">
+                            <color key="textColor" red="0.77989119291305542" green="0.21275633573532104" blue="0.19602227210998535" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                            <date key="previewedDate" timeIntervalSinceReferenceDate="-167640660">
+                                <!--1995-09-09 17:09:00 +0000-->
+                            </date>
+                        </dateLabel>
+                        <label width="1" alignment="center" verticalAlignment="center" textAlignment="center" numberOfLines="0" id="NMs-zg-g44">
+                            <string key="text">오늘은 마음을 안정하고자 하나 자신의 마음은 심란하여 실수를 저지러는 운이다. 편인이 들어와 있어 자신의 의지와 관계없이 짜증스러우며 싸움을 걸게 되고 신경질적으로 변한다. 그러나 이기운을 절제할 수 있는 능력이 있어 곧 자신감을 회복하여 자신을 귀하게 만든다. 직장인이면 부하직원을 잘 대해주면 뜻밖의 이익이 되어 되돌아 오리라. 인내와 성실로서 오늘 하루를 극복하라.사업자는 적지만 수입이 있는 날이다.</string>
+                        </label>
+                    </items>
+                    <connections>
+                        <segue destination="Dog-DJ-TNr" kind="relationship" relationship="nextPage" id="VGy-ge-6YG"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="-95" y="157"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="4HO-Ox-MYr">
+            <objects>
+                <controller title="설정" id="Dog-DJ-TNr">
+                    <items>
+                        <picker height="100" alignment="left" id="yo3-2H-hCy"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="196" y="34"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -32,16 +67,17 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="TodayFortune_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="TodayFortune_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.77989119291305542" green="0.21275633573532104" blue="0.19602227210998535" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
