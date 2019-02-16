@@ -29,6 +29,10 @@
                             <string key="text">오늘은 마음을 안정하고자 하나 자신의 마음은 심란하여 실수를 저지러는 운이다. 편인이 들어와 있어 자신의 의지와 관계없이 짜증스러우며 싸움을 걸게 되고 신경질적으로 변한다. 그러나 이기운을 절제할 수 있는 능력이 있어 곧 자신감을 회복하여 자신을 귀하게 만든다. 직장인이면 부하직원을 잘 대해주면 뜻밖의 이익이 되어 되돌아 오리라. 인내와 성실로서 오늘 하루를 극복하라.사업자는 적지만 수입이 있는 날이다.</string>
                         </label>
                     </items>
+                    <connections>
+                        <outlet property="fortuneLabel" destination="NMs-zg-g44" id="hNz-Hn-Pgz"/>
+                        <outlet property="titleLabel" destination="gtL-bL-c9U" id="i3X-uM-Ah2"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="214" y="222"/>

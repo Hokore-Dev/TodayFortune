@@ -8,14 +8,21 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
+class InterfaceController: WKInterfaceController , WCSessionDelegate {
 
-class InterfaceController: WKInterfaceController {
-
+    @IBOutlet weak var titleLabel: WKInterfaceLabel!
+    @IBOutlet weak var fortuneLabel: WKInterfaceLabel!
+    
+    var session:WCSession?
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Configure interface objects here.
+        session = WCSession.default
+        session?.delegate = self
+        session?.activate()
         
         onHttpRequest()
     }
@@ -28,6 +35,20 @@ class InterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        switch activationState {
+        case .activated:
+            print("Watch WCSession Activated")
+        case .notActivated:
+            print("Watch WCSession Not Activated")
+        case .inactive:
+            print("Watch WCSession InActivated")
+        }
+        if let iPhoneContext = self.session?.receivedApplicationContext as? [String : Int] {
+            self.titleLabel.setText(String(iPhoneContext["Counter"]!))
+        }
     }
 
     func onHttpRequest() {
@@ -57,6 +78,8 @@ class InterfaceController: WKInterfaceController {
                     //메인쓰레드에서 출력하기 위해
                     DispatchQueue.main.async {
                         print(str)
+                        
+                        self.fortuneLabel.setText(str)
                     }
                 }
             }else{
