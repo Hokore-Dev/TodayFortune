@@ -46,11 +46,16 @@ class InterfaceController: WKInterfaceController , WCSessionDelegate {
         case .inactive:
             print("Watch WCSession InActivated")
         }
-        if let iPhoneContext = self.session?.receivedApplicationContext as? [String : Int] {
-            self.titleLabel.setText(String(iPhoneContext["Counter"]!))
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        if let iphoneContext = applicationContext as? [String : Int] {
+            if iphoneContext["Counter"] != nil {
+                self.titleLabel.setText(String(iphoneContext["Counter"]!))
+            }
         }
     }
-
+    
     func onHttpRequest() {
   
         //URL생성

@@ -28,6 +28,7 @@ class ViewController: UIViewController, WCSessionDelegate {
 
     @IBAction func buttonPressed(_ sender: Any) {
         counter += 1
+        textField.text = String(counter)
         let iPhoneAppContext = ["Counter": counter]
         do {
             try session?.updateApplicationContext(iPhoneAppContext)
