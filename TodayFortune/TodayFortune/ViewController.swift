@@ -18,7 +18,7 @@ class ViewController: UIViewController, WCSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.black
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         if WCSession.isSupported() {
             session = WCSession.default
