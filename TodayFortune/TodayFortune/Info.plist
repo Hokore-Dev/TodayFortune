@@ -10,6 +10,23 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>erumyasp.azurewebsites.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -36,19 +53,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>http://www.erumy.com</key>
-			<dict> 
-				<key>NSIncludesSubdomains</key> 
-				<true/> 
-				<key>NSExceptionAllowsInsecureHTTPLoads</key> 
-				<true/> 
-			</dict>
-		</dict>
-	</dict>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

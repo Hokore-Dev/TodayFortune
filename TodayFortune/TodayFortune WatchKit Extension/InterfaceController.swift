@@ -56,6 +56,8 @@ class InterfaceController: WKInterfaceController , WCSessionDelegate {
         }
     }
     
+    func replace(main: String,target: String, withString: String) -> String { return main.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil) }
+    
     func onHttpRequest() {
   
         //URL생성
@@ -84,7 +86,7 @@ class InterfaceController: WKInterfaceController , WCSessionDelegate {
                     DispatchQueue.main.async {
                         print(str)
                         
-                        self.fortuneLabel.setText(str)
+                        self.fortuneLabel.setText(self.replace(main: str, target: "<ul>", withString: ""))
                     }
                 }
             }else{
